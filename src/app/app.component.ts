@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+
+type Role = 'finder' | 'employer';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'landing-job';
+  readonly role = signal<Role>('finder');
+
+  switchRole() {
+    this.role.update(current => current === 'finder' ? 'employer' : 'finder');
+  }
 }

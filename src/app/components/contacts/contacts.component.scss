@@ -1,0 +1,200 @@
+.contacts-section {
+    background-color: #000000;
+    text-align: center;
+
+    h2 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1.222rem;
+        margin-bottom: 20px;
+        color: #FFFFFF;
+    }
+
+    .contacts-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .contacts-left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p, a {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1rem;
+                line-height: 1.188rem;
+                display: flex;
+                align-items: center;
+                letter-spacing: -0.5px;
+                color: #FFFFFF;
+                text-decoration: none;
+            }
+
+            a {
+                cursor: pointer;
+            }
+    
+            .contacts-socials {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+        
+                    svg {
+                        width: 40px;
+                        height: 40px;
+                    }
+            }
+        }
+
+        .contacts-right {
+
+            img {
+                display: block;
+                width: 209px;
+                height: 236px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (min-width: 480px) {
+    .contacts-section {
+        h2 {
+            font-size: 1.25rem;
+        }
+
+        .contacts-row {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: left;
+
+            .contacts-left {
+
+                p, a {
+                    font-size: 1.125rem;
+                }
+            }
+          
+            .contacts-right {
+                img {
+                  margin: 0;
+                }
+            }
+        }
+
+        
+    }
+}
+
+@media (min-width: 768px) {
+    .contacts-section {
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        .contacts-row {
+            gap: 50px;
+
+            .contacts-left {
+                gap: 40px;
+
+                p, a {
+                    font-size: 1.5rem;
+                    line-height: 1.3;
+                }
+                .contacts-socials {
+                    svg {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+
+            }
+          
+            .contacts-right {
+                img {
+                  width: 355px;
+                  height: 400px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 960px) {
+    .contacts-section {
+        h2 {
+            font-size: 2rem;
+        }
+
+        .contacts-row {
+            gap: 41px;
+
+            .contacts-left {
+                gap: 40px;
+
+                p, a {
+                    font-size: 2rem;
+                    line-height: 1.3;
+                }
+                .contacts-socials {
+                    svg {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+
+            }
+          
+            .contacts-right {
+                img {
+                  width: 443px;
+                  height: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    .contacts-section {
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 50px;
+        }
+
+        .contacts-row {
+            gap: 150px;
+
+            .contacts-left {
+                gap: 40px;
+
+                p, a {
+                    font-size: 2.25rem;
+                    line-height: 1.3;
+                }
+                .contacts-socials {
+                    svg {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+
+            }
+          
+            .contacts-right {
+                img {
+                  width: 443px;
+                  height: 500px;
+                }
+            }
+        }
+    }
+}

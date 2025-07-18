@@ -1,0 +1,353 @@
+.hero-section {
+    background-color: #000000;
+
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 60px;
+
+        .role-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 20px;
+
+            .slide-arrow--sm {
+                background-color: transparent;
+                border: none;
+
+                svg {
+                    path {
+                        stroke-width: 2px;
+                    }
+                }
+            }
+    
+            .role-rating { 
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1),
+                            transform 0.5s cubic-bezier(0.4,0,0.2,1);
+                opacity: 1;
+                transform: translateX(0);
+
+                &.slide-left-hidden {
+                  opacity: 0;
+                  transform: translateX(-100%) scale(0.95);
+                  pointer-events: none;
+                }
+                &.slide-left-visible {
+                  opacity: 1;
+                  transform: translateX(0) scale(1);
+                  pointer-events: auto;
+                }
+                &.slide-right-hidden {
+                  opacity: 0;
+                  transform: translateX(100%) scale(0.95);
+                  pointer-events: none;
+                }
+                &.slide-right-visible {
+                  opacity: 1;
+                  transform: translateX(0) scale(1);
+                  pointer-events: auto;
+                }
+
+                img {
+                    width: 211px;
+                    height: 277px;
+                }
+    
+                .rating-icons {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    list-style: none;
+                    padding-left: 20px;
+                }
+            }
+    
+        }
+    }
+    
+    h2 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 1.22;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+    }
+
+    p {
+        background: linear-gradient(90.25deg, #FFFFFF -11.75%, #5D5D5D 114.02%);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.188rem;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 40px;
+    }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .find-job-btn {
+            background: #6849FF;
+            border-radius: 30px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.22;
+            text-align: center;
+            color: #FFFFFF;
+            padding: 9px 0 9px 0;      
+            border: 0 solid;  
+        }
+
+        .details-btn {
+            border: 1px solid #6849FF;
+            border-radius: 30px;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 1.125rem;
+            line-height: 1.22;
+            text-align: center;
+            color: #FFFFFF;
+            background-color: #000000;
+            padding: 8px 0 8px 0; 
+        }
+    }
+
+    .slide-arrow--lg {
+        display: none;
+    }
+}
+
+@media (min-width: 480px) {
+    .hero-section {
+        .hero-container {
+            gap: 20px;
+            padding-bottom: 80px;
+
+            .action-buttons {
+                flex-direction: row;
+
+                .find-job-btn {
+                    padding: 14px 0 14px 0;   
+                    flex: 1;
+                }
+        
+                .details-btn {
+                    padding: 13px 0 13px 0; 
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        .hero-container {
+            flex-direction: row;
+            padding-top: 40px;
+
+            .role-card {
+                .slide-arrow--sm{
+                    display: none;
+                }
+
+                .role-rating {
+                    .rating-icons {
+                        padding-left: 20px;
+                    }
+
+                    img {
+                        width: 229px;
+                        height: 301px;
+                    }
+
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+
+            .slide-block {
+                display: flex;
+                justify-content: center; 
+                gap: 20px;
+                padding-left: 250px;
+
+                .slide-arrow--lg {
+                    display: flex;
+                    background-color: transparent;
+                    border: none;
+
+                    svg {
+                        path {
+                            stroke-width: 2px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .left-block {
+            order: 1;
+
+            h2 {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+
+            p {
+                font-style: normal;
+                font-weight: 400;
+                font-size: 1.25rem;
+                line-height: 1.2;
+            }
+
+            .action-buttons {
+                margin-bottom: 30px;
+            }
+        }
+        .role-card {
+            order: 2;
+        }
+    }
+}
+
+
+@media (min-width: 960px) {
+    .hero-section {
+        .hero-container {
+            .role-card {
+                .role-rating {
+                    img {
+                        width: 326.5px;
+                        height: 429px;
+                    }
+
+                    svg {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+        }
+
+        .left-block {
+
+            h2 {
+                font-size: 2rem;
+                line-height: 1.2;
+                letter-spacing: 0.2px;
+            }
+
+            p {
+                font-size: 1.5rem;
+                line-height: 1.2;
+                letter-spacing: 0.2px;
+                padding-right: 75px;
+            }
+
+            .action-buttons {
+                margin-bottom: 66px;
+                padding-right: 33px;
+            }
+
+            .slide-block {
+                .slide-arrow--lg {
+                    svg {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    .hero-section {
+        padding-top: 0px;
+        .hero-container {
+            gap: 75px;
+
+            .role-card {
+                .role-rating {
+                    img {
+                        width: 435px;
+                        height: 572px;
+                    }
+                }
+            }
+        }
+
+        .left-block {
+            margin-top: 80px;
+
+            h2 {
+                font-size: 2.25rem;
+                line-height: 1.2;
+                letter-spacing: 0.2px;
+                margin-bottom: 50px;
+            }
+
+            p {
+                font-size: 1.5rem;
+                line-height: 1.2;
+                letter-spacing: 0;
+                padding-right: 0px;
+                margin-bottom: 50px;
+            }
+
+            .action-buttons {
+                margin-bottom: 100px;
+                padding-right: 0px;
+
+                .find-job-btn {
+                    padding: 18px 70px 18px 70px;
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                    line-height: 1.2;
+                    white-space: nowrap;
+                }
+
+                .find-job-btn.employer-1920 {
+                    padding-left: 52px;
+                    padding-right: 53px;
+                  }
+
+                .details-btn {
+                    padding: 18px 70px 18px 70px;
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                    line-height: 1.2;
+                }
+            }
+
+            .slide-block {
+                .slide-arrow--lg {
+                    svg {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="container header-container">
+      <h1 class="header-logo">Подработай</h1>
+      <nav class="header-nav">
+        <ul class="header-nav-list">
+          <li><a href="#why-choose-us">Почему выбирают нас</a></li>
+          <li><a href="#for-finders">Для соискателей</a></li>
+          <li><a href="#for-employers">Для работодателей</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <button class="header-menu-btn" aria-label="Открыть меню" (click)="openMobileMenu()">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4.58301 7.91669H35.4163M4.58301 20H35.4163M4.58301 32.0834H35.4163" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+</header>
+
+<!-- Мобильное меню -->
+<div *ngIf="showMobileMenu" class="mobile-menu-overlay">
+  <div class="mobile-menu-blur"></div>
+  <nav class="mobile-menu" aria-label="Мобильное меню">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">Подработай</span>
+      <button class="mobile-menu-close" aria-label="Закрыть меню" (click)="closeMobileMenu()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <ul class="mobile-menu-list">
+      <li><a href="#why-choose-us" (click)="closeMobileMenu()">Почему выбирают нас</a></li>
+      <li><a href="#for-finders" (click)="closeMobileMenu()">Для соискателей</a></li>
+      <li><a href="#for-employers" (click)="closeMobileMenu()">Для работодателей</a></li>
+      <li><a href="#reviews" (click)="closeMobileMenu()">Отзывы</a></li>
+      <li><a href="#contacts" (click)="closeMobileMenu()">Контакты</a></li>
+    </ul>
+  </nav>
+</div>

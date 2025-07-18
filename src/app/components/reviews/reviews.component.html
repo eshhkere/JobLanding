@@ -1,0 +1,61 @@
+<section class="review-section">
+    <ul class="review-container">
+      <li>
+        <h2>Отзывы</h2>
+      </li>
+      <li class="reviews-wrapper">
+        <div class="reviews-track" [ngClass]="reviewAnimationState">
+          <div
+            class="review-card-wrapper"
+            *ngFor="let review of visibleReviews"
+            [ngClass]="review.type">
+            
+            <div class="review-card" [ngClass]="review.type">
+              <div class="card-background">
+                <ng-container *ngIf="review.type === 'center'; else sideBg">
+                  <svg width="316" height="316" viewBox="0 0 326 316" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 30C0 13.4315 13.4315 0 30 0H296C312.569 0 326 13.4315 326 30V248.549C326 265.118 312.569 278.549 296 278.549H244.788C239.651 278.549 234.601 279.868 230.12 282.38L177.668 311.779C168.556 316.886 157.444 316.886 148.332 311.779L95.8802 282.38C91.3994 279.868 86.3488 278.549 81.2122 278.549H30C13.4314 278.549 0 265.118 0 248.549V30Z" fill="#191A1F"/>
+                  </svg>
+                </ng-container>
+                <ng-template #sideBg>
+                  <svg width="281" height="280" viewBox="0 0 281 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 27C0 12.08 12.08 0 27 0H254C268.92 0 281 12.08 281 27V220C281 234.92 268.92 247 254 247H210C205.1 247 200.3 248.2 196.2 250.7L151.7 276.2C144.1 280.7 136.9 280.7 129.3 276.2L84.8 250.7C80.7 248.2 75.9 247 71 247H27C12.08 247 0 234.92 0 220V27Z" fill="#191A1F"/>
+                  </svg>
+                </ng-template>
+              </div>
+              <p>{{ review.text }}</p>
+              <ul class="rating-icons">
+                <li *ngFor="let star of getStarArray(review.rating)">
+                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M11.4406 6.76C13.0243 3.92 13.8156 2.5 14.9993 2.5C16.1831 2.5 16.9743 3.92 18.5581 6.76L18.9681 7.495C19.4181 8.3025 19.6431 8.70625 19.9931 8.9725C20.3431 9.23875 20.7806 9.3375 21.6556 9.535L22.4506 9.715C25.5256 10.4113 27.0618 10.7588 27.4281 11.935C27.7931 13.11 26.7456 14.3363 24.6493 16.7875L24.1068 17.4213C23.5118 18.1175 23.2131 18.4663 23.0793 18.8963C22.9456 19.3275 22.9906 19.7925 23.0806 20.7213L23.1631 21.5675C23.4793 24.8388 23.6381 26.4738 22.6806 27.2C21.7231 27.9263 20.2831 27.2638 17.4056 25.9388L16.6593 25.5963C15.8418 25.2188 15.4331 25.0313 14.9993 25.0313C14.5656 25.0313 14.1568 25.2188 13.3393 25.5963L12.5943 25.9388C9.71557 27.2638 8.27557 27.9263 7.31932 27.2013C6.36057 26.4738 6.51932 24.8388 6.83557 21.5675L6.91807 20.7225C7.00807 19.7925 7.05307 19.3275 6.91807 18.8975C6.78557 18.4663 6.48682 18.1175 5.89182 17.4225L5.34932 16.7875C3.25307 14.3375 2.20557 13.1113 2.57057 11.935C2.93557 10.7588 4.47432 10.41 7.54932 9.715L8.34432 9.535C9.21807 9.3375 9.65432 9.23875 10.0056 8.9725C10.3568 8.70625 10.5806 8.3025 11.0306 7.495L11.4406 6.76Z" fill="white"/>
+                  </svg>   
+                </li>
+              </ul>
+            </div>
+            <div class="review-author">
+              <img [src]="review.author.image" [alt]="'Иконка-аватар автора: ' + review.author.name">
+              <div class="author-name">
+                <h3>{{ review.author.name }}</h3>
+                <p>({{ review.author.location }})</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="arrow-btn">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" 
+             (click)="prevReview()" 
+             style="cursor: pointer;" aria-hidden="true">
+            <path d="M35 20.0002H5M5 20.0002L19.1667 5.8335M5 20.0002L19.1667 34.1668" stroke="
+            #C3C3C3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" 
+             (click)="nextReview()" 
+             style="cursor: pointer;" aria-hidden="true">
+            <path d="M5 20.0002H35M35 20.0002L20.8333 5.8335M35 20.0002L20.8333 34.1668" stroke="
+            #C3C3C3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </li>
+    </ul>
+  </section>
+
