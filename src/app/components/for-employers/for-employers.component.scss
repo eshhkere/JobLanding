@@ -17,9 +17,70 @@
             color: #FFFFFF;
         }
     
-        img {
-            width: 247px;
-            height: 500px;
+        .video-container {
+            position: relative;
+            display: inline-block;
+
+            video {
+                width: 247px;
+                height: 500px;
+                border-radius: 40px;
+                object-fit: cover;
+                border: 4px dashed white;
+                display: block;
+            }
+
+            .video-controls {
+                position: absolute;
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 8px;
+                padding: 8px 12px;
+                backdrop-filter: blur(4px);
+
+                .play-pause-btn {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 4px;
+                    border-radius: 4px;
+                    transition: background-color 0.2s;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                .progress-bar {
+                    flex: 1;
+                    height: 4px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 2px;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.4);
+                    }
+
+                    .progress-fill {
+                        height: 100%;
+                        background: #2DD498;
+                        border-radius: 2px;
+                        transition: width 0.1s ease;
+                    }
+                }
+            }
         }
     }
 }
@@ -36,9 +97,27 @@
 
             }
         
-            img {
-                width: 296px;
-                height: 600px;
+            .video-container {
+                video {
+                    width: 296px;
+                    height: 600px;
+                }
+
+                .video-controls {
+                    bottom: 20px;
+                    left: 20px;
+                    right: 20px;
+                    padding: 10px 16px;
+
+                    .play-pause-btn svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    .progress-bar {
+                        height: 6px;
+                    }
+                }
             }
         }
     }
@@ -55,9 +134,28 @@
 
             }
         
-            img {
-                width: 395px;
-                height: 800px;
+            .video-container {
+                video {
+                    width: 395px;
+                    height: 800px;
+                }
+
+                .video-controls {
+                    bottom: 24px;
+                    left: 24px;
+                    right: 24px;
+                    padding: 12px 20px;
+                    gap: 16px;
+
+                    .play-pause-btn svg {
+                        width: 28px;
+                        height: 28px;
+                    }
+
+                    .progress-bar {
+                        height: 8px;
+                    }
+                }
             }
         }
     }

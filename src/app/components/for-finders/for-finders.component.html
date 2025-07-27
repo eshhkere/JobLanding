@@ -1,6 +1,27 @@
 <section class="for-finders-section">
     <div class="for-finders-container">
         <h2>Для соискателей</h2>
-        <img src="assets/images/for-finders-image.webp" alt="Видео работы приложения для соискателей">
+        <div class="video-container">
+            <video 
+                #videoPlayer
+                src="assets/videos/for-finders-video.mp4" 
+                preload="metadata"
+                poster="assets/images/for-finders-image.webp"
+                aria-label="Видео работы приложения для соискателей">
+            </video>
+            <div class="video-controls">
+                <button class="play-pause-btn" (click)="togglePlay()" aria-label="Воспроизвести/пауза">
+                    <svg *ngIf="!isPlaying" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M8 5V19L19 12L8 5Z" fill="white"/>
+                    </svg>
+                    <svg *ngIf="isPlaying" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z" fill="white"/>
+                    </svg>
+                </button>
+                <div class="progress-bar" (click)="seekVideo($event)">
+                    <div class="progress-fill" [style.width.%]="progress"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
