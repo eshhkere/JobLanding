@@ -2,22 +2,58 @@
     <div class="for-employers-container">
         <h2>Для работодателей</h2>
         <div class="video-container">
-            <video 
+            <!-- Основное видео с несколькими форматами -->
+            <video
                 #videoPlayer
-                src="assets/videos/for-employers-video.mp4" 
                 preload="metadata"
+                playsinline
+                webkit-playsinline
                 poster="assets/images/for-employers-image.webp"
-                aria-label="Видео работы приложения для работодателя">
+                aria-label="Видео работы приложения для работодателя"
+                [style.display]="videoError ? 'none' : 'block'">
+                
+                <!-- Несколько форматов для лучшей совместимости -->
+                <source src="assets/videos/for-employers-video.mp4" type="video/mp4">
+                <source src="assets/videos/for-employers-video.webm" type="video/webm">
+                
+                <!-- Fallback сообщение -->
+                <p>Ваш браузер не поддерживает воспроизведение видео.</p>
             </video>
-            <div class="video-controls">
-                <button class="play-pause-btn" (click)="togglePlay()" aria-label="Воспроизвести/пауза">
+
+            <!-- Сообщение об ошибке -->
+            <div *ngIf="videoError" class="video-error">
+                <div class="error-content">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#666"/>
+                    </svg>
+                    <p>Не удалось загрузить видео</p>
+                    <button (click)="retryVideo()" class="retry-btn">Попробовать снова</button>
+                </div>
+            </div>
+
+            <!-- Загрузочный индикатор -->
+            <div *ngIf="!isVideoLoaded && !videoError" class="video-loading">
+                <div class="loading-spinner"></div>
+                <p>Загружается видео...</p>
+            </div>
+
+            <!-- Кастомные контролы -->
+            <div class="video-controls" *ngIf="isVideoLoaded && !videoError">
+                <button 
+                    class="play-pause-btn" 
+                    (click)="togglePlay()" 
+                    [disabled]="!isVideoLoaded"
+                    aria-label="Воспроизвести/пауза">
+                    
                     <svg *ngIf="!isPlaying" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M8 5V19L19 12L8 5Z" fill="white"/>
                     </svg>
+                    
                     <svg *ngIf="isPlaying" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M6 4H10V20H6V4ZM14 4H18V20H14V4Z" fill="white"/>
                     </svg>
                 </button>
+                
                 <div class="progress-bar" (click)="seekVideo($event)">
                     <div class="progress-fill" [style.width.%]="progress"></div>
                 </div>
