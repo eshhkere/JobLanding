@@ -29,4 +29,8 @@ export class HeroSectionComponent {
       this.animationState = direction === 'left' ? 'slide-left-visible' : 'slide-right-visible';
     }, 500); // 500ms = длительность анимации
   }
+
+  openTelegram() {
+    window.open('https://t.me/PodrabotaiBot', '_blank');
+  }
 }

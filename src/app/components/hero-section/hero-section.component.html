@@ -51,19 +51,21 @@
                 class="find-job-btn"
                 [ngClass]="{'employer-1920': role === 'employer'}"
                 [ngStyle]="{
-                  'background': role === 'finder' ? '#6849FF' : '#2DD498'
+                    'background': role === 'finder' ? '#6849FF' : '#2DD498'
                 }"
-              >
+                (click)="openTelegram()"
+                >
                 {{ role === 'finder' ? 'Найти работу' : 'Разместить вакансию' }}
-              </button>
-              <button
+                </button>
+                <button
                 class="details-btn"
                 [ngStyle]="{
                   'border-color': role === 'finder' ? '#6849FF' : '#2DD498'
                 }"
-              >
+                (click)="openTelegram()"
+                >
                 Подробнее
-              </button>
+                </button>
               </div>
             <div class="slide-block">
                 <button class="slide-arrow--lg" aria-label="Предыдущий слайд" (click)="animateRoleSwitch('left')">
