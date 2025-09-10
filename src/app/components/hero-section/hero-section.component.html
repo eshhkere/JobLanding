@@ -10,6 +10,8 @@
                 <img
                 [src]="role === 'finder' ? '/assets/images/finder.webp' : '/assets/images/employer.webp'"
                 [alt]="role === 'finder' ? 'Изображение: соискатель' : 'Изображение: работодатель'"
+                loading="eager"
+                fetchpriority="high"
             	>
                 <ul class="rating-icons">
                     <li *ngFor="let star of [1,2,3,4,5]; let i = index"
