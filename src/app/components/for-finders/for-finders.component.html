@@ -31,18 +31,11 @@
                 </div>
             </div>
 
-            <!-- Загрузочный индикатор -->
-            <div *ngIf="!isVideoLoaded && !videoError" class="video-loading">
-                <div class="loading-spinner"></div>
-                <p>Загружается видео...</p>
-            </div>
-
             <!-- Кастомные контролы -->
-            <div class="video-controls" *ngIf="isVideoLoaded && !videoError">
+            <div class="video-controls" *ngIf="!videoError">
                 <button 
                     class="play-pause-btn" 
                     (click)="togglePlay()" 
-                    [disabled]="!isVideoLoaded"
                     aria-label="Воспроизвести/пауза">
                     
                     <svg *ngIf="!isPlaying" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -54,7 +47,7 @@
                     </svg>
                 </button>
                 
-                <div class="progress-bar" (click)="seekVideo($event)">
+                <div class="progress-bar" (click)="seekVideo($event)" *ngIf="isVideoLoaded">
                     <div class="progress-fill" [style.width.%]="progress"></div>
                 </div>
             </div>

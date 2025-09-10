@@ -23,7 +23,6 @@ export class ForFindersComponent implements AfterViewInit, OnDestroy {
       this.isVideoLoaded = true;
       this.videoError = false;
       this.cdr.detectChanges();
-      console.log('Видео для соискателей загружено успешно');
     });
 
     video.addEventListener('error', (e) => {
@@ -60,7 +59,7 @@ export class ForFindersComponent implements AfterViewInit, OnDestroy {
     });
 
     // Предзагрузка видео
-    video.load();
+    // video.load();
   }
 
   ngOnDestroy() {
@@ -70,8 +69,23 @@ export class ForFindersComponent implements AfterViewInit, OnDestroy {
   togglePlay() {
     const video = this.videoPlayer.nativeElement;
     
+    // Загружаем видео только при первом клике
+    if (!this.isVideoLoaded && !this.videoError) {
+      video.load();
+      
+      // Ждем загрузки и сразу запускаем воспроизведение
+      video.addEventListener('canplay', () => {
+        video.play().catch(error => {
+          console.error('Ошибка воспроизведения:', error);
+          this.videoError = true;
+          this.cdr.detectChanges();
+        });
+      }, { once: true });
+      
+      return;
+    }
+    
     if (!this.isVideoLoaded) {
-      console.warn('Видео еще не загружено');
       return;
     }
 

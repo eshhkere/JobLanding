@@ -28,6 +28,37 @@
                 display: block;
             }
 
+            .video-loading {
+                position: absolute;
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 8px;
+                padding: 8px 12px;
+                backdrop-filter: blur(4px);
+                color: white;
+                font-size: 14px;
+
+                .loading-spinner {
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid rgba(255, 255, 255, 0.3);
+                    border-top: 2px solid white;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            }
+
             .video-controls {
                 position: absolute;
                 bottom: 16px;
@@ -100,6 +131,19 @@
                     height: 600px;
                 }
 
+                .video-loading {
+                    bottom: 20px;
+                    left: 20px;
+                    right: 20px;
+                    padding: 10px 16px;
+                    font-size: 16px;
+
+                    .loading-spinner {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+
                 .video-controls {
                     bottom: 20px;
                     left: 20px;
@@ -135,6 +179,19 @@
                 video {
                     width: 395px;
                     height: 800px;
+                }
+
+                .video-loading {
+                    bottom: 24px;
+                    left: 24px;
+                    right: 24px;
+                    padding: 12px 20px;
+                    font-size: 18px;
+
+                    .loading-spinner {
+                        width: 28px;
+                        height: 28px;
+                    }
                 }
 
                 .video-controls {
