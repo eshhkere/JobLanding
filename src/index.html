@@ -56,8 +56,19 @@
       ymab('metrika.103961166', 'init'/*, {clientFeatures}, {callback}*/);
     });
   </script>
+<!-- Varioqub experiments -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1RDTE21JD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1RDTE21JD');
+</script>
+<!-- Google tag (gtag.js) -->
   <script>
-    // Minimal polyfills for modern browsers
+    // Pollyfill 
     if (!window.Promise) {
       document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>');
     }
